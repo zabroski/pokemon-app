@@ -1,7 +1,7 @@
 import React,{ useState, useEffect } from 'react';
-import Header from './components/Layout/Heater';
 import { getAllPokemon, getPokemon} from './services/pokemon';
 import Card from './components/Card';
+import './App.css';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       let response = await getAllPokemon(initialUrl);
-     
       setNexUrl(response.next);
       setPrevUrl(response.previous);
       let pokemon = await loadingPokemon(response.results);
@@ -33,14 +32,13 @@ function App() {
 
     setPokemonData(_pokemonData)
   };
-
-  console.log(pokemonData)
+  console.log( pokemonData)
   return (
     <div>
       {
          loading ? <h1>loading.....</h1> :(
            <>
-           <div>
+           <div className="grid-container">
              {pokemonData.map((pokemon, i) => {
                return <Card key={i} pokemon={pokemon} />
              })}
