@@ -13,7 +13,6 @@ function CardType({pokemon}) {
                 
 
             <div className="Card__types">
-
                 {
                     pokemon.types.map(type => {
                         return (
