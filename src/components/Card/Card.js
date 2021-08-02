@@ -10,9 +10,6 @@ function Card({ pokemon }) {
             <div className="Card__img">
                 <img src={pokemon.sprites.front_default} alt="" />
             </div>
-            {/* <div className="Card__name">
-                {pokemon.name}
-            </div> */}
             <CardType pokemon={pokemon} />   
         </div>
   );

@@ -4,6 +4,7 @@ import Card from './components/Card';
 import './App.css';
 // import CardInfo from './components/CardInfo/CardInfo';
 import Fouter from './components/Footer/Fouter';
+import Header from './components/Header/Header';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -25,6 +26,13 @@ function App() {
     fetchData();
   }, [])
 
+
+  // const CardListComponent = () => {
+    
+  // } 
+
+ 
+
   const loadingPokemon = async (data) => {
     let _pokemonData = await Promise.all(
       data.map(async pokemon => {
@@ -37,6 +45,7 @@ function App() {
   console.log( pokemonData)
   return (
     <div>
+       <Header />
       {
          loading ? <h1>loading.....</h1> :(
         
@@ -48,6 +57,7 @@ function App() {
          )
       }
       <Fouter />
+      {/* <Header /> */}
     </div>
   );
 }
