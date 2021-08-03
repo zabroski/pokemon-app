@@ -1,15 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SearchBox from '../SearchBox/SearchBox';
 import "./Header.css";
 
 
 
 
-function Header({pokemon}) {
-    return (
-        <div className="header">
+class Header extends Component {
+
+   constructor() {
+       super();
+       this.state = {
+           searchfield: '',
+       }
+   }
+
+
+ onSearchChange(e) {
+        console.log(e.target.value)
+    }
+
+    render() {
+        return(
+            <div className="header">
             <div>
-                <SearchBox />
+                <SearchBox setSearchfield={this.onSearchChange} />
                 <p>Use the Advanced Search to explore Pokemon by type, Weakness, Ability and more!</p>
             </div>
             
@@ -18,7 +32,9 @@ function Header({pokemon}) {
             </div>
 
         </div>
-    )
+        )
+    }
+
 }
 
 

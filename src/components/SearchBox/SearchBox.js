@@ -2,6 +2,8 @@ import React from 'react';
 import './SearchBox.css';
 
 const SearchBox = ({ searchfield, searchChange }) => {
+
+  // const [searchfield, setSearchfield] = useState('');
   return (
     <div className='searchBox'>
       <input

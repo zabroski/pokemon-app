@@ -26,12 +26,27 @@ function App() {
     fetchData();
   }, [])
 
+  const next = async() => {
+    setLoading(true);
+    let data = await getAllPokemon(nextUrl)
+    await loadingPokemon(data.results)
+    setNexUrl(data.next);
+    setPrevUrl(data.previous)
+    setLoading(false);
 
-  // const CardListComponent = () => {
-    
-  // } 
+  }
 
- 
+
+  const prev = async() => {
+    if(!prevUrl) return;
+    setLoading(true);
+    let data = await getAllPokemon(prevUrl)
+    await loadingPokemon(data.results)
+    setNexUrl(data.next);
+    setPrevUrl(data.previous)
+    setLoading(false);
+
+  }
 
   const loadingPokemon = async (data) => {
     let _pokemonData = await Promise.all(
@@ -46,6 +61,10 @@ function App() {
   return (
     <div>
        <Header />
+       <div className="btn">
+         <button onClick={prev}>Suprise Me!</button>
+         <button onClick={next}>Loade more!</button>
+       </div>
       {
          loading ? <h1>loading.....</h1> :(
         
@@ -56,6 +75,10 @@ function App() {
            </div>
          )
       }
+
+      <div className="btn">
+         <button onClick={next}>Loade more!</button>
+       </div>
       <Fouter />
       {/* <Header /> */}
     </div>
