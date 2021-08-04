@@ -4,13 +4,15 @@ import Card from './components/Card';
 import './App.css';
 // import CardInfo from './components/CardInfo/CardInfo';
 import Fouter from './components/Footer/Fouter';
-import Header from './components/Header/Header';
+import SearchBox from './components/SearchBox/SearchBox';
+// import CardList from './components/CardList/CardList';
 
 function App() {
   const [pokemonData, setPokemonData] = useState([]);
   const [nextUrl, setNexUrl] = useState('');
   const [prevUrl, setPrevUrl] = useState('');
   const [loading, setLoading] = useState(true);
+  const [searchfield, setSearchfield] = useState('');
   const initialUrl = 'https://pokeapi.co/api/v2/pokemon';
 
 
@@ -20,7 +22,7 @@ function App() {
       setNexUrl(response.next);
       setPrevUrl(response.previous);
       let pokemon = await loadingPokemon(response.results);
-      console.log(pokemon);
+      // console.log(pokemon);
       setLoading(false);
     }
     fetchData();
@@ -48,6 +50,21 @@ function App() {
 
   }
 
+
+  const onSearchChange = (event)=>  {
+    setSearchfield(event.target.value)
+    console.log(event.target.value)
+  }
+
+
+
+  const filterPokemons = pokemonData.filter(pokemon =>{
+    return pokemon.name.toLowerCase().includes(searchfield.toLowerCase())
+  })
+  console.log(filterPokemons)
+
+
+
   const loadingPokemon = async (data) => {
     let _pokemonData = await Promise.all(
       data.map(async pokemon => {
@@ -57,30 +74,33 @@ function App() {
 
     setPokemonData(_pokemonData)
   };
+
+  
   console.log( pokemonData)
   return (
-    <div>
-       <Header />
-       <div className="btn">
+
+    <div className=''>
+       <SearchBox searchChange={onSearchChange} />
+       {/* <CardList /> */}
+       {/* <Header /> */}
+       <div className="btn grow  shadow-5 ma2">
          <button onClick={prev}>Suprise Me!</button>
-         <button onClick={next}>Loade more!</button>
+         <button onClick={next}>Load more pokemon!</button>
        </div>
       {
          loading ? <h1>loading.....</h1> :(
         
            <div className="grid-container">
              {pokemonData.map((pokemon, i) => {
-               return <Card key={i} pokemon={pokemon} />
+               return <Card key={i} pokemon={pokemon}  />
              })}
            </div>
          )
       }
-
-      <div className="btn">
-         <button onClick={next}>Loade more!</button>
+      <div className="btn grow  shadow-5 ma2">
+         <button onClick={next}>Load more pokemon!</button>
        </div>
       <Fouter />
-      {/* <Header /> */}
     </div>
   );
 }

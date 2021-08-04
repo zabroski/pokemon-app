@@ -1,9 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 import './SearchBox.css';
 
-const SearchBox = ({ searchfield, searchChange }) => {
+const SearchBox = ({searchfield, searchChange }) => {
 
-  // const [searchfield, setSearchfield] = useState('');
   return (
     <div className='searchBox'>
       <input
@@ -12,6 +11,7 @@ const SearchBox = ({ searchfield, searchChange }) => {
         placeholder='search Pokemon'
         onChange={searchChange}
       />
+      <div className='inInfo '><p className='underline'>Search for a pokemon by name or using its National pokemon number.</p></div>
     </div>
   );
 }

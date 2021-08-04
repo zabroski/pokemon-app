@@ -14,6 +14,7 @@
 }
 .fouter-container ul li {
   color: rgb(197, 194, 194);
+  margin: 10px;
 }
 
 .fouter-container div a {
@@ -37,4 +38,8 @@
 
 .icons {
   display: flex;
+}
+.footer-summary li {
+  list-style: none;
+  margin: 10px;
 }

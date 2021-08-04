@@ -1,6 +1,13 @@
 .searchBox {
   display: flex;
-  padding: 10px;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  padding: 30px;
+}
+.searchBox p {
+  color: rgb(53, 50, 50);
+  text-align: l;
 }
 
 .searchBox input {
