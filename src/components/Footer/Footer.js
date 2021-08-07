@@ -1,7 +1,7 @@
 import React from 'react';
-import './Fouter.css'
+import './Footer.css'
 
-function Fouter({pokemon}) {
+function Footer({pokemon}) {
     const checkFuncion = () => {
         console.log('Hello')
     }
@@ -61,4 +61,4 @@ function Fouter({pokemon}) {
 
 }
 
-export default Fouter;
+export default Footer;

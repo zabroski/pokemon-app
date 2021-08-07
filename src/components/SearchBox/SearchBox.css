@@ -1,21 +1,35 @@
 .searchBox {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 100%;
   padding: 30px;
-}
-.searchBox p {
-  color: rgb(53, 50, 50);
-  text-align: l;
+  background: rgb(31, 29, 29);
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .searchBox input {
-  padding: 10px;
+  padding: 15px;
   width: 400px;
   text-align: justify;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   outline: none;
+  margin-left: 100px;
+}
+
+.navInformation p {
+  text-align: center;
+  font-family: "Hahmlet", serif;
+  color: white;
+}
+
+.navInformation {
+  display: flex;
+  text-align: justify;
+  background: rgb(34, 151, 83);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  width: 30%;
+  margin-right: 100px;
 }

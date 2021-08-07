@@ -5,6 +5,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  text-align: justify;
   /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); */
 }
 
@@ -42,4 +43,5 @@
 .footer-summary li {
   list-style: none;
   margin: 10px;
+  text-align: justify;
 }
